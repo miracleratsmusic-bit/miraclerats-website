@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1.0,width=1000;  user-scalable=0;" />
+    <meta charset="utf-8">
+	<title>Miracle Rats</title>
+	<meta name="description" content="Miracle Rats website!!!"/>
+	<meta name="keywords" content="indie rock independent music Lubin miracle rats"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<link rel="stylesheet" media="screen and (min-width: 1024px)" href="widestyle.css">
+	<link rel="stylesheet" media="screen and (max-width: 1023px)" href="smallstyle.css">
+	<link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	
+<style>
+	body {
+	font-family: "Courier New", Courier, monospace;
+	}
+	
+	#mobile-menu {
+	display: none;
+	}
+	
+</style>
+<script>
+
+/* mobile menu */
+
+function togglemenu() {
+  var x = document.getElementById("mobile-menu");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+} 
+
+function togglehide() {
+  var x = document.getElementById("hide");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+} 
+
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+</script>
+</head>
+<body>
+	<div class="header left"><img src="img/star.gif" style="height:100%;float:right;"></div>
+	<div class="header middle">
+		<div class="note">
+			<div class="navbar" style="padding-top: 30px">
+					
+						<div class="menu"><a href="index.html"><b style="font-size:2em;padding: 15px;color:white;"> Główna </b></a></div>
+						<div class="menu"><a href="music.html"><b style="font-size:2em;padding: 15px;color:white;"> Muzyka </b></a></div>
+						<div class="menu"><a href="blog.html"><b style="font-size:2em;padding: 15px;color:white;"> Blog </b></a></div>	
+						<div class="menu"><a target="_blank" rel="noopener noreferrer" href="https://miraclerats.bandcamp.com/music"><b style="font-size:2em;padding: 15px;color:white;"> Merch </b></a></div>
+						<div class="menu"><a href="about.html"><b style="font-size:2em;padding: 15px;color:white;"> O<nbsp> mnie</nbsp> </b></a></div>
+						<div class="menu"><a href="photos.html"><b style="font-size:2em;padding: 15px;color:white;"> Zdjęcia </b></a></div>
+						<div class="menu"><a href="contact.html"><b style="font-size:2em;padding: 15px;color:white;"> Kontakt </b></a></div>
+						
+					
+					
+			</div>
+		</div>
+	</div>	
+	<div class="header right"><img src="img/star.gif" style="height:100%;float:left;"> <a href="photos_en.html"><img src="img/lang.png" style="height:100%;"></a> </div>
+	
+	
+	<div class="mobile">
+		<div class="mheader"><img src="logo.png" style="height:100%;">
+		<button class="button" onclick="togglemenu(),togglehide()" style="height:100%; float: right;">
+		<img src="img/menu_mobile2.jpg" style="height:100%; float: right;" >
+		</button>
+		</div>
+		
+		<div id="mobile-menu">
+			<div class="column middle">
+				<div class="navbar">
+						<div class="menu"><a href="index.html"><b style="font-size:9em;padding: 15px;color:white;"> Główna </b></a></div>
+						<div class="menu"><a href="music.html"><b style="font-size:9em;padding: 15px;color:white;"> Muzyka </b></a></div>
+						<div class="menu"><a href="blog.html"><b style="font-size:9em;padding: 15px;color:white;"> Blog </b></a></div>	
+						<div class="menu"><a target="_blank" rel="noopener noreferrer" href="https://miraclerats.bandcamp.com/music"><b style="font-size:9em;padding: 15px;color:white;"> Merch </b></a></div>
+						<div class="menu"><a href="about.html"><b style="font-size:9em;padding: 15px;color:white;"> O<nbsp> mnie</nbsp> </b></a></div>
+						<div class="menu"><a href="photos.html"><b style="font-size:9em;padding: 15px;color:white;"> Zdjęcia </b></a></div>
+						<div class="menu"><a href="contact.html"><b style="font-size:9em;padding: 15px;color:white;"> Kontakt </b></a></div>		
+						<div class="menu"><a href="photos_en.html"><b style="font-size:9em;padding: 15px;color:white;"> English </b></a></div>
+				</div>	
+			</div>
+		</div>
+
+			
+	</div>
+	
+	
+	
+	
+	<div class="row">
+	
+		<div class="column left" ><img src="img/1px.png"></div>
+		
+		<div id="hide">	
+			 <div class="column middle" style="background-image: url(cork1.jpg);background-repeat: repeat;border: 30px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round; ">
+		      <br>
+		      
+		    		      
+		      <img src="img/det making.jpg" style="width:30%;height:400px;border: 15px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;" onclick="openModal();currentSlide(1)" class="hover-shadow">
+		      
+        		      <!-- The Modal/Lightbox -->
+          <div id="myModal" class="modal">
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+          
+              <div class="mySlides">
+                
+                     <img src="img/det making.jpg" alt="Here's me recording 'Dead End Town' ">
+                  
+                   
+                      <div class="caption-container">
+                      <p id="caption">To ja podczas nagrywania "Dead End Town"</p>
+                      </div>
+                
+              </div>
+          
+              <div class="mySlides">
+               
+                <img src="img/practice.jpg" >
+                 <div class="caption-container">
+                      <p id="caption">Pierwsza (i jak dotąd ostatnia) próba backing banda.</p>
+                      </div>
+              </div>
+          
+              <div class="mySlides">
+               
+                <img src="img3_wide.jpg" >
+              </div>
+          
+              <div class="mySlides">
+                
+                <img src="img/det making.jpg" >
+              </div>
+           
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+         
+         
+         </div>
+         
+ 
+		      
+        		     
+       </div>
+	      
+	  </div>          
+	      
+	  
+	
+	<div class="column right" ></div>
+	
+	
+  <div class="footer" >
+	<p style="color:white;padding-top:20px;">
+	hello?
+	</p>
+	<b style="color:white;font-size:1.5em;">© Miracle Rats</b>
+	</div>
+	
+	</div> <!-- hide -->
+	
+	
+<style>
+    
+  
+      body {
+
+		background-image: url('bg stars.jpg');
+		background-repeat: no-repeat;
+		background-position: fixed;
+		background-attachment: fixed;
+		background-size: cover;
+		text-align: center;
+  }
+
+</style>
+
+   	
+</body>
+</html>
