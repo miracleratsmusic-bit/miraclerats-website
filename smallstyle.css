@@ -18,6 +18,7 @@
 
 	.middle {
 	  width: 100%;
+	  
 	}
 	
 	.row:after {
@@ -49,7 +50,7 @@
 	 } 
 	 
 	.mheader {
-		height: 50vh;
+		height: 75px;
 		width: 100%;
 		background-image: url('sweater.jpg');
 	} 

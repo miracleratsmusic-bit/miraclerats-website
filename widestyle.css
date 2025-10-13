@@ -19,6 +19,7 @@
 
 	.middle {
 	  width: 60%;
+	  background-image: url(cork1.jpg);background-repeat: repeat;border: 30px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;
 	}
 	
 	.row:after {
