@@ -129,7 +129,7 @@
 
 	.card {
 	   padding: 0;
-	   margin: 20px;
+	   margin: 0px;
 	   display: flex;
 	   flex-flow: row wrap;
 	   background-image: url(img/mathpaper.jpg);
@@ -147,7 +147,6 @@
 	  padding-left:2.5%;
 	  word-wrap: break-word;
 	  float:right;
-	  height:400px;
 	  width:60%;
 	  text-align:left;
 	  }
