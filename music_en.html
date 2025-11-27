@@ -102,19 +102,245 @@ function togglehide() {
 		<div class="column left" ><img src="img/1px.png"></div>
 		
 		<div id="hide">	
-			 <div class="column middle" >
+		
+		 <div class="column middle" style="background-image: url(cork1.jpg);background-repeat: repeat;border: 15px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;">
 		     
-		     <div class="desktop" >
+		    <div class="flex-container"> 
+				<div>
+					<div class="player-container">
+						
+						<img src="img/player.png">
+						
+						<style>
+						@font-face {
+						font-family: 'basiic';
+						 src: url('https://file.garden/Zztv0a9yEhr5pmEq/basiic.ttf') format("truetype");
+						 }
+						</style> 
+						
+						 <div id="musicplayer">
+								
+									 <table class="controls">
+									<tr>
+										<td>
+											<div class="prev-track" onclick="prevTrack()"><img class="ctrlimg" src='https://file.garden/Zztv0a9yEhr5pmEq/back.png'></div>
+										</td>
+										<td>
+											<div class="playpause-track" onclick="playpauseTrack()" ><img class="ctrlimg" src='https://file.garden/Zztv0a9yEhr5pmEq/play.png'></div>
+										</td>
+										<td>
+											<div class="next-track" onclick="nextTrack()"><img class="ctrlimg" src='https://file.garden/Zztv0a9yEhr5pmEq/next.png'></div>
+										</td>
+									</tr>
+								</table>
+								
+						 <div>
+									<marquee scrollamount="8" class="songtitle"></marquee>
+								</div>
+								<div class="seeking">
+									<div class="current-time">00:00</div>
+									
+									<input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
+						 
+									<div class="total-duration">0:00</div>
+								</div>
+						 <div class="slider_container" style="display:none;">
+						 
+							  <i class="fa fa-volume-down"></i>
+							  <input type="range" min="0" max="20"
+								value="10" class="volume_slider" onchange="setVolume()">
+							  <i class="fa fa-volume-up"></i>
+							</div>
+							
+								<audio id="music" src=""></audio> 
+							</div>
+						  <!-- player by adilene.net-->  
+							<script>
+								// initiate variables
+								let track_name = document.querySelector(".songtitle");
+						 
+								let playpause_btn = document.querySelector(".playpause-track");
+								let next_btn = document.querySelector(".next-track");
+								let prev_btn = document.querySelector(".prev-track");
+						 
+								let seek_slider = document.querySelector(".seek_slider");
+								let curr_time = document.querySelector(".current-time");
+								let total_duration = document.querySelector(".total-duration");
+						 let volume_slider = document.querySelector(".volume_slider");
+								let track_index = 0;
+								let isPlaying = false;
+								let updateTimer;
+								
+								// create new audio element
+								let curr_track = document.getElementById("music");
+								
+								//
+								// DEFINE YOUR SONGS HERE!!!!!
+								// MORE THAN FOUR SONGS CAN BE ADDED!!
+								// JUST ADD ANOTHER BRACKET WITH NAME AND PATH
+								// CATBOX.MOE IS RECOMMENDED FOR UPLOADING MP3 FILES
+								 let track_list = [
+								  
+									{name:"I Never Learn - Miracle Rats",
+										path:"music/i never learn.mp3"
+									},
+									
+									
+									
+								];
+								//
+								//
+								//
+								//
+								// the default volume of the song feel free to change
+								  vid = document.getElementById("music");
+													  vid.volume = 0.1; 
+													  
+								   function setVolume() {
+									// Set the volume according to the
+									// percentage of the volume slider set
+								   
+									curr_track.volume = volume_slider.value / 100;
+								  }
+								  
+													  
+								function loadTrack(track_index) {
+									clearInterval(updateTimer);
+									resetValues();
+						 
+									// load a new track
+									curr_track.src = track_list[track_index].path;
+									curr_track.load();
+									
+									// update details of the track
+									track_name.textContent = "playing " + (track_index + 1) + " of " + track_list.length + ": " + track_list[track_index].name;
+						 
+									// set an interval of 1000 milliseconds for updating the seek slider
+									updateTimer = setInterval(seekUpdate, 1000);
+									
+									// move to the next track if the current one finishes playing 
+									curr_track.addEventListener("ended", nextTrack);
+								}
+						 
+								// reset values
+								function resetValues() {
+									curr_time.textContent = "0:00";
+									total_duration.textContent = "0:00";
+									seek_slider.value = 0;
+								}
+						 
+								// checks if song is playing
+								function playpauseTrack() {
+									if (!isPlaying) playTrack();
+									else pauseTrack();
+								}
+						 
+								// plays track when play button is pressed
+								function playTrack() {
+									curr_track.play();
+									isPlaying = true;
+									
+									// replace icon with the pause icon
+										playpause_btn.innerHTML = "<img class='ctrlimg'  src='https://file.garden/Zztv0a9yEhr5pmEq/pause.png'></img>";
+								}
+						 
+								// pauses track when pause button is pressed
+								function pauseTrack() {
+									curr_track.pause();
+									isPlaying = false;
+									
+									// replace icon with the play icon
+									playpause_btn.innerHTML = "<img class='ctrlimg'  src='https://file.garden/Zztv0a9yEhr5pmEq/play.png'></img>";
+								}
+						 
+						 
+								// moves to the next track
+								function nextTrack() {
+									if (track_index < track_list.length - 1)
+										track_index += 1;
+									else track_index = 0;
+									loadTrack(track_index);
+									playTrack();
+								}
+						 
+								// moves to the previous track
+								function prevTrack() {
+									if (track_index > 0)
+										track_index -= 1;
+									else track_index = track_list.length;
+									loadTrack(track_index);
+									playTrack();
+								}
+						 
+								// seeker slider
+								function seekTo() {
+									seekto = curr_track.duration * (seek_slider.value / 100);
+									curr_track.currentTime = seekto;
+								}
+						 
+								function seekUpdate() {
+									let seekPosition = 0;
+									
+									// check if the current track duration is a legible number
+									if (!isNaN(curr_track.duration)) {
+										seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+										seek_slider.value = seekPosition;
+										
+									// calculate the time left and the total duration
+									let currentMinutes = Math.floor(curr_track.currentTime / 60);
+									let currentSeconds = Math.floor(curr_track.currentTime - currentMinutes * 60);
+									let durationMinutes = Math.floor(curr_track.duration / 60);
+									let durationSeconds = Math.floor(curr_track.duration - durationMinutes * 60);
+										
+									// adding a zero to the single digit time values
+									if (currentSeconds < 10) { currentSeconds = "0" + currentSeconds; }
+									if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
+									if (currentMinutes < 10) { currentMinutes = currentMinutes; }
+									if (durationMinutes < 10) { durationMinutes = durationMinutes; }
+						 
+									curr_time.textContent = currentMinutes + ":" + currentSeconds;
+									total_duration.textContent = durationMinutes + ":" + durationSeconds;
+								  }
+								}
+								
+								// load the first track in the tracklist
+								loadTrack(track_index);
+								 </script>
+					
+					</div> 				
+					<div class="player-bottom">
+					<img src="img/border5b.png" style="width:100%">
+					</div>
+				</div>	
+				
+				<div>
+					<div class="desktop" style="padding-left:5%;">
+						<div class="mathtxt" style="width:110%;rotate:2deg;">
+						<b style="font-size:50px;">MUSIC!</b> <br><b>Here you can find a lot of cool things. On the left is a player with cool unreleased songs and below is a list of my projects.</b>
+						</div>
+					</div>	
+					
+					<div class="mobile" style="padding-bottom:10%;">
+						<div class="mathtxt" style="width:100%;width:90%;">
+						<b style="font-size:50px;">MUSIC!</b> <br><b>Here you can find a lot of cool things. Above is a player with cool unreleased songs and below is a list of my projects.</b>
+						</div>
+					</div>	
+				</div> 
+		    </div> 	
+			
+			<div class="desktop">
 		       <br>
-  
-            <div class="flex-container-row" style="padding-left:5%;">
-                <div><div class="mathtxt" style="height:90%;width:90%">
-                      <b style="font-size:50px;;">MUSIC!</b> <br>
-                      <b style="font-size:1em;">I make music. Like a lot. Here's a comprehensive list of every major project I have or acitvely am working&nbsp;on</b>
-                </div></div>
-                <div style="padding-top:5%"><img src="img/det making.jpg" style="height:90%;width:90%;border: 30px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;"></div>
-            </div> 
-         
+			<div class="flex-container">   
+				<div style="width:10%">
+				<img src="img/1px.png">
+				</div>
+				<div class="mathtxt" style="width:80%;border: 25px solid transparent;border-image-source: url(img/border.png);border-image-slice: 30;border-image-repeat: round;rotate: 3deg;">
+					<b style="font-size:4.5em">PROJECTS</b>
+				</div>
+			</div>   
+			   
+			<br><br>
+			   
             <div class="flex-container-row" style="padding-left:5%;padding-bottom:5%;">
                 <div><img src="img/projects/oh okay.jpg" style="width:100%;border:10px solid black;">
                 <a target="_blank" rel="noopener noreferrer" href="https://miraclerats.bandcamp.com/album/oh-okay"><img src="img/bandcamp.jpg" style="height:80px;padding-right:20px;"></a>
@@ -122,7 +348,7 @@ function togglehide() {
                 </div>
                 <div><div class="mathtxt" style="width:90%">
                   <b style="font-size:1.5em;">OH, OKAY</b><br>
-                  <b>My first album. Not the best by any means, but it's pretty neat. Made in the last three months of 2024.</b>
+                  <b>My first album. Not the best by any means, but it's pretty neat. Made in the last three months of 2024</b>
                 </div></div>
 	      	  </div>    
 	      	  
@@ -162,20 +388,17 @@ function togglehide() {
                 </div>
 	      	  </div>  
 		     </div>
-		     
-		     <div class="mobile" style="background-image: url(cork1.jpg);background-repeat: repeat;border: 15px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;">
-		          <div class="mathtxt" style="width:90%;padding:2%;">
-  		        <div style="text-align:center;"><b style="font-size:50px;;">MUSIC!</b> <br>
-                      <b style="font-size:1em;">I make music. Like a lot. Here's a comprehensive list of every major project I have or acitvely am working&nbsp;on</b>
-  		        </div>
-  		        </div>
-  		       
-              <img src="img/det making.jpg" style="height:90%;width:90%;border: 10px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;">
-              
+			 
+			 <div class="mobile">
+			 
+			 <div class="mathtxt" style="width:90%;border: 15px solid transparent;border-image-source: url(img/border.png);border-image-slice: 30;border-image-repeat: round;rotate: 3deg;">
+				<b style="font-size:50px">PROJECTS</b>
+			</div>
+			 
               <div class="mathtxt" style="width:90%;padding:2%;">
   		        <div style="text-align:center;">
-              <b style="font-size:30px;">OH, OKAY</b><br>
-                  <b>My first album. Not the best by any means, but it's pretty neat. Made in the last three months of 2024.</b>
+              <b style="font-size:50px;">OH, OKAY</b><br>
+                  <b style="font-size:30px;">My first album. Not the best by any means, but it's pretty neat. Made in the last three months of 2024</b>
               </div></div>
               
               <img src="img/projects/oh okay.jpg" style="width:90%;border:5px solid black;">
@@ -184,8 +407,8 @@ function togglehide() {
               
               <div class="mathtxt" style="width:90%;padding:2%;">
   		        <div style="text-align:center;">
-              <b style="font-size:1.5em;">SODOM AND GOMORAH</b><br>
-                  <b>melinoë's first album. A scrumptious blend of folk and myhtology. I play bass on this one and I was also the producer.</b>
+              <b style="font-size:50px;">SODOM AND GOMORAH</b><br>
+                  <b style="font-size:30px;">melinoë's first album. A scrumptious blend of folk and myhtology. I play bass on this one and I was also the producer.</b>
               </div></div>
               
               <img src="img/projects/sodom and gomorah.jpg" style="width:90%;border:5px solid black;">
@@ -194,8 +417,8 @@ function togglehide() {
                 
                 <div class="mathtxt" style="width:90%;padding:2%;">
   		        <div style="text-align:center;">
-                <b style="font-size:1.5em;">ZMIOTKA EP</b><br>
-                  <b>SKID's debut EP! Very rough, recorded in summer of 2024. We used pcv pipes as mic stands lol.</b>
+                <b style="font-size:50px">ZMIOTKA EP</b><br>
+                  <b style="font-size:30px;">SKID's debut EP! Very rough, recorded in summer of 2024. We used pcv pipes as mic stands lol.</b>
                </div></div>
                
                <img src="img/projects/zmiotka.jpg" style="width:90%;border:5px solid black;">
@@ -205,8 +428,8 @@ function togglehide() {
               
               <div class="mathtxt" style="width:90%;padding:2%;">
               <div style="text-align:center;">
-               <b style="font-size:1.4em;">DEMONstracja</b><br>
-                  <b>Fata Morgana's collection of demos. Recorded over many practice sessions, a peak into what the album could sound like.</b>
+               <b style="font-size:45px">DEMONstracja</b><br>
+                  <b style="font-size:30px;">Fata Morgana's collection of demos. Recorded over many practice sessions, a peak into what the album could sound like.</b>
               </div></div>
               
               <img src="img/projects/demonstracja.jpg" style="width:90%;border:5px solid black;">
@@ -217,6 +440,7 @@ function togglehide() {
 		     </div>
       
     		</div>
+			
   </div>
 	
 	<div class="column right" ></div>
