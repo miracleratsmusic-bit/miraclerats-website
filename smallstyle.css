@@ -205,6 +205,27 @@
   width: 45%;
 }
 
+.flex-container-row2 {
+  display: flex;
+  justify-content: center; 
+  gap: 5px;
+	flex-wrap: wrap;
+	flex-grow: 1;
+	flex-direction: row;
+
+}
+
+.flex-container-row2 > div {
+  margin: 2.5%;
+  padding-bottom:0;
+  font-size: 3ex;
+  width: 92%;
+  border: 20px solid #fcd6a7;
+  border-image-slice: 30;
+  border-image-repeat: round;
+  background-color: #fcd6a7;
+}
+
 			
 /* GALLERY */
 

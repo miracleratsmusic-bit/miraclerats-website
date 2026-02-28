@@ -10,7 +10,7 @@
 	<link rel="stylesheet" media="screen and (min-width: 1980px)" href="widestyle.css">
 	<link rel="stylesheet" media="screen and (min-width: 1024px)" href="midstyle.css">
 	<link rel="stylesheet" media="screen and (max-width: 1023px)" href="smallstyle.css">
-	<link type="text/css" rel="stylesheet" href="css/lightgallery-bundle.css" />
+	<link href="lightbox.css" rel="stylesheet" />
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 	
 <style>
@@ -20,6 +20,17 @@
 	
 	#mobile-menu {
 	display: none;
+	}
+
+	@font-face {
+   font-family: Kristina;
+   src: url(fonts/Kristina.Fine.woff2);
+	}
+
+	@font-face {
+   font-family: Kristina;
+   src: url(fonts/Kristina.Bold.woff2);
+   font-weight: bold;
 	}
 	
 </style>
@@ -46,6 +57,8 @@ function togglehide() {
 } 
 
 </script>
+<script type="text/javascript" src="js/jquery.1.11.1.js"></script>
+<script src="lightbox-plus-jquery.js"></script>
 </head>
 <body>
 	<div class="header left"><img src="img/star.gif" style="height:100%;float:right;"></div>
@@ -104,26 +117,40 @@ function togglehide() {
 		<div id="hide">	
 			 <div class="column middle" >
 		     
-		     <div class="desktop">
-		        
-		        <div class="mathtxt" style="width:90%;padding:2%;">
-              <div style="text-align:center;"><br><br><br>
-              <b>W.I.P.</b><br><br><br>
-              </div></div>
-		        
-		     </div>
-		     
-		     <div class="mobile" style="background-image: url(cork1.jpg);background-repeat: repeat;border: 15px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;">
-		         
-		         <div class="mathtxt" style="width:90%;padding:2%;">
-              <div style="text-align:center;"><br><br><br>
-              <b>W.I.P.</b><br><br><br>
-              </div></div>
-		         
-    		 </div>
-      
-      </div>
-	
+				<div class="desktop">
+					
+					<div class="mathtxt" style="width:90%;padding:2%;">
+						<div class="flex-container-row2" style="text-align:center;font-family: Kristina;font-weight: bold;font-size: 1.5em;">
+							<div class="menu" style="width: 30%;rotate:-3deg;">
+								<a href="photos/1stgig.html">
+								<img src="photos/1stgig/rats iza3.jpg" alt="" style="width:100%">
+								</a>
+								16 stycznia 2026
+							</div>
+						</div>	
+					</div>
+					<br><br><br><br><br><br><br><br><br><br>
+				</div>
+				<div class="mobile" style="background-image: url(cork1.jpg);background-repeat: repeat;border: 15px solid transparent;border-image-source: url(img/border2.png);border-image-slice: 30;border-image-repeat: round;">
+					<div class="mathtxt" style="width:100%;padding:0;margin:0;text-align: center;">
+					<div class="flex-container-row2" style="text-align:center;font-family: Kristina;font-weight: bold;font-size: 1.5em;">
+						<div class="menu" style="width: 100%;rotate:-3deg;margin:5%;	">
+							<a href="photos/1stgig.html">
+							<img src="photos/1stgig/rats iza3.jpg" alt="" style="width:100%">
+							</a>
+							16 stycznia 2026
+						</div>
+						
+				</div>
+				<br><br><br> <br><br><br> 
+				</div>		
+				       
+				</div>
+		
+				</div>
+	 		</div>
+		</div>
+	</div>
 	<div class="column right" ></div>
 	
 	
@@ -142,7 +169,7 @@ function togglehide() {
   
       body {
 
-		background-image: url('bg stars.jpg');
+		background-image: url('cassettes.jpg');
 		background-repeat: no-repeat;
 		background-position: fixed;
 		background-attachment: fixed;

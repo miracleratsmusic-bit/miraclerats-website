@@ -21,6 +21,17 @@
 	#mobile-menu {
 	display: none;
 	}
+
+	@font-face {
+   font-family: Kristina;
+   src: url(fonts/Kristina.Fine.woff2);
+	}
+
+	@font-face {
+   font-family: Kristina;
+   src: url(fonts/Kristina.Bold.woff2);
+   font-weight: bold;
+	}
 	
 </style>
 <script>
@@ -112,12 +123,40 @@ function togglehide() {
     		
     		   
         		<div class="mathtxt" style="rotate:2deg;">
-        		<b style="font-size:8ex;">Witaj!</b> <br>
-        		<b style="font-size:4ex;">W świecie Miracle Rats. Możesz tu znaleźć fajną muzykę, poczytać bloga, kupić merch i wiele więcej.</b>
-        		</div>
-			
-			<br><br>
-			
+        		<b style="font-size:8ex;">Heja!</b> <br>
+        		<p style="font-size:4ex;">Witam w moim zakątku w internecie. Można tu poczytać bloga, posłuchać muzy i kupić merch.</p>
+        		</div>	
+	
+				<div class="mathtxt" style="text-align:center;rotate:-2deg ;">
+					<div class="flex-container" >
+						<div style="margin-left: 2.5%;">
+							<div class="menu" style="width:90%;rotate:-3deg;border: 10px solid #fcd6a7;border-image-slice: 30;border-image-repeat: round;background-color: #fcd6a7;">
+									<a href="photos/1stgig.html">
+									<img src="photos/1stgig/rats iza3.jpg" alt="" style="width:100%">
+									</a>
+									<b style="font-family: Kristina;font-size: 1.5em;">16 stycznia 2026</b>
+							</div>
+						</div>	
+						<div>
+							<b style="font-size:2em;">Zakładka "Zdjęcia" już działa!</b>
+						</div>
+					</div>		
+				</div>
+
+			 <a href="blog/04winter-slumber.html">
+  		      <div class="card" style="margin:50px">
+  		      <img src="img/blog/4 thumbnail.jpg" style="float:left;height:35%;width:35%">
+    		      <div class="tittle" style="height: auto">
+    		      <b style="font-size:4em;">Nowy wpis na blogu!</b><br><br>
+    		      <b style="font-size:2em;">Temat: nagrania i koncerty</b>
+    		       
+    		      
+    		      
+    		      </div>
+  		      </div>
+         </a>  
+			  
+
 			<div class="flex-container">
                 <div style="padding-top:2%">
                 <img src="img/cd front page.png" style="rotate:-7deg;width:100%;padding-left:10%;">
@@ -142,11 +181,39 @@ function togglehide() {
 		   
 				<div>
 				<div class="mathtxt">
-        		<b style="font-size:4ex;">Witaj!</b> <br>
-        		<b style="font-size:2ex;">W świecie Miracle Rats. Możesz tu znaleźć fajną muzykę, poczytać bloga, kupić merch i wiele więcej.</b>       
+        		<b style="font-size:4ex;">Heja!</b> <br>
+        		<p style="font-size:2ex;">Witam w moim zakątku w internecie. Można tu poczytać bloga, posłuchać muzy i kupić merch.</p>       
 				</div>
 				</div>
 				
+				<div>
+					<div class="mathtxt" style="text-align:center;">
+						<div class="flex-container" >
+							<div style="padding-left: 10%;">
+								<div class="menu" style="-left:5%;width:90%;rotate:-3deg;border: 10px solid #fcd6a7;border-image-slice: 30;border-image-repeat: round;background-color: #fcd6a7;">
+										<a href="photos/1stgig.html">
+										<img src="photos/1stgig/rats iza3.jpg" alt="" style="width:100%">
+										</a>
+										<b style="font-family: Kristina;font-size: 1.5em;">16 stycznia 2026</b>
+								</div>
+							</div>	
+							<div>
+								<b style="font-size:2.5ex;">Zakładka "Zdjęcia" już działa!</b>
+							</div>
+						</div>		
+					</div>
+				</div>
+
+				<a href="blog/04winter-slumber.html">
+				<div class="mathtxt" style="margin-bottom: 0;border: 5px solid black;">
+					<b style="font-size:5ex;">Nowy wpis na blogu!</b><br>
+					<b style="font-size:3ex;">Temat: nagrania i koncerty</b>	
+				</div>
+				<div style="margin-bottom: 0;">
+  		     		 <img src="img/blog/4 thumbnail.jpg" style="height:90%;width:90%;border: 5px solid black;">
+				</div>
+				</a>
+
                 <div>
                 <img src="img/cd front page.png" style="width:90%;rotate:3deg">
                 </div>
@@ -195,7 +262,7 @@ function togglehide() {
   
       body {
 
-		background-image: url('bg stars.jpg');
+		background-image: url('cassettes.jpg');
 		background-repeat: no-repeat;
 		background-position: fixed;
 		background-attachment: fixed;
