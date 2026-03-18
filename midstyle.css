@@ -231,6 +231,63 @@
 
 /*music*/
 
+
+  #vinyl-gallery * {
+    all: unset;
+  }
+  
+  #vinyl-gallery {
+    all: initial;
+    width: 100%;
+    height: 230px;
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-left: -6px;
+  }
+  
+  #vinyl-gallery .vinyl {
+    perspective: 500px !important;
+    width: 18px;
+    transition: width 0.5s;
+  }
+  
+  #vinyl-gallery .vinyl:hover {
+    width: 148px;
+  }
+  
+  #vinyl-gallery img {
+    transition: transform 0.5s, width 0.5s, height 0.5s, margin-top 0.5s;
+    width: 180px;
+    height: 180px;
+    transform: rotateX(0deg) rotateY(25deg);
+    transform-style: preserve-3d;
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  #vinyl-gallery .vinyl:hover img {
+    transform: rotateX(0deg) rotateY(10deg);
+    width: 188px;
+    height: 188px;
+    margin-top: -2px;
+  }
+  
+  #vinyl-gallery .title {
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    width: 100%;
+    padding-left: 6px;
+  }
+  
+  #vinyl-gallery .vinyl:nth-child(n):hover + .title {
+    visibility: visible;
+  }
+
 .player-container {
 	display: flex;
 	flex-direction: column;
